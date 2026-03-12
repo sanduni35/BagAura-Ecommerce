@@ -1,6 +1,3 @@
-/* =========================================================================
-   BAGAURA - APPLICATION LOGIC
-   ========================================================================= */
 
 // Products will be fetched from backend
 let products = [];
@@ -44,8 +41,7 @@ const app = {
         const productsToShow = state.showAllProducts ? products : products.slice(0, 4);
 
         productsToShow.forEach((product, index) => {
-            // FIXED: Look for different common ID names to prevent "undefined" grouping!
-            // If the backend doesn't send "id", it will check "productId" or "_id".
+            
             const uniqueId = product.id || product.productId || product._id || `fallback-id-${index}`;
             
             const card = document.createElement('div');
@@ -90,7 +86,7 @@ const app = {
         if (summary) summary.style.display = 'block';
 
         state.cart.forEach(item => {
-            // Ensure we match using the exact same fallback ID logic used when adding
+           
             const product = products.find((p, index) => {
                 const uniqueId = p.id || p.productId || p._id || `fallback-id-${index}`;
                 return String(uniqueId) === String(item.productId);
@@ -190,7 +186,7 @@ const app = {
     },
 
     removeFromCart: function(productId) {
-        // Keeps all items EXCEPT the one matching the exact ID
+        
         state.cart = state.cart.filter(i => String(i.productId) !== String(productId));
         this.renderCartItems();
         this.updateCartUI();
