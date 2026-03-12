@@ -39,11 +39,5 @@ Database name: **bagaura_db**
 
 Note: My MySQL server runs on **port 3307 using XAMPP**.
 
-## How to Run
-
-1. Start MySQL using **XAMPP**
-2. Create database **bagaura_db**
-3. Run the Spring Boot application
-4. Open: **http://localhost:8080**
 
 
